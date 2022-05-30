@@ -1,5 +1,5 @@
-let {argv} = require("process");
-let {listar,mostrarTareas,listarTareas,filtrarPorEstado,categorizarTareas,filtrarPorCategoria,cambiarEstado,cambiarTitulo,cambiarCategoria,agregarTarea,borrarPrimerTarea,borrarUltimaTarea,borrarTarea} = require("./funcionesDeTareas");
+let { argv } = require("process");
+let { listar, mostrarTareas, listarTareas, filtrarPorEstado, categorizarTareas, filtrarPorCategoria, modificarTarea, cambiarEstado, cambiarTitulo, cambiarCategoria, agregarTarea, borrarPrimerTarea, borrarUltimaTarea, borrarTarea } = require("./funcionesDeTareas");
 
 /* Para evitar conflictos. Declaro las variables por fuera y después reasigno sus valores dentro del switch */
 
@@ -19,7 +19,7 @@ switch (argv[2]) {
     case "listar": // Acción para listar las tareas y ver su posición.
         console.log(`\n[P O S I C I Ó N   E N   E L   A R R E G L O] \n`);
         listarTareas(); // Función que muestra la posicón en el arreglo de cada tarea.
-        break;   
+        break;
     case "categorias": // Acción para ver en que estado se encuentran las tareas.
         estado = argv[3];
         console.log(`\n[T A R E A S   C L A S I F I C A D A S   P O R   C A T E G O R Í A S]\n`);
@@ -39,36 +39,39 @@ switch (argv[2]) {
     case "estado": // Acción para ver las tareas que comparten estado.
         estado = argv[3];
         console.log(`\nLAS TAREAS CON ESTADO "${argv[3]}"  SON:\n---------------------------------------\n`);
-        filtrarPorEstado(estado); 
+        filtrarPorEstado(estado);
         break;
+    /* case "modificar-tarea":
+        modificarTarea(argv[3], argv[4], argv[5])
+        break; */
     case "nuevo-estado": // Acción para modificar el estado de una tarea.
         i = argv[3]
         estadoNuevo = argv[4];
-        console.log(cambiarEstado(i, estadoNuevo)); 
+        console.log(cambiarEstado(i, estadoNuevo));
         break;
-    case "nuevo-titulo": // Ación para modificar el estado de una tarea.
+    case "nuevo-titulo": // Ación para modificar el titulo de una tarea.
         i = argv[3]
         tituloNuevo = argv[4];
-        console.log(cambiarTitulo(i, tituloNuevo)); 
+        console.log(cambiarTitulo(i, tituloNuevo));
         break;
-    case "nueva-categoria": // Ación para modificar el estado de una tarea.
+    case "nueva-categoria": // Ación para modificar la categoría de una tarea.
         i = argv[3]
         categoriaNueva = argv[4];
-        console.log(cambiarCategoria(i, categoriaNueva)); 
+        console.log(cambiarCategoria(i, categoriaNueva));
         break;
     case "agregar": // Acción para agregar una nueva tarea.
         titulo = argv[3]; // Guargo el titulo de la tarea en la posición 3
         estado = argv[4]; // Guargo el estado de la tarea en la posición 4
-        console.log(agregarTarea(titulo, estado)); 
+        console.log(agregarTarea(titulo, estado));
         console.log(`\n[Tarea agregada]`);
-        break;
-    case "borrar-p": // Acción que borra la primer tarea de la lista.
-        borrarPrimerTarea(); // Función simple que borra la primer tarea.
         break;
     case "borrar": // Acción que borra la tarea deseada.
         posicion = argv[3]
-        borrarTarea(posicion,1) // Función simple que borra la tarea deseada indicando su posición.
+        borrarTarea(posicion, 1) // Función simple que borra la tarea deseada indicando su posición.
         console.log(`\n[Tarea borrada]`);
+        break;
+    case "borrar-p": // Acción que borra la primer tarea de la lista.
+        borrarPrimerTarea(); // Función simple que borra la primer tarea.
         break;
     case "borrar-u": // Acción que borra la última tarea de la lista.
         borrarUltimaTarea() // Función simple que borra la última tarea.
@@ -94,7 +97,7 @@ switch (argv[2]) {
         console.log(`BORRAR-U:\n\nLa acción "borrar-u" elimina el objeto al final del arreglo.\nSe accede con el comando [node app borrar-u]\n`);
         console.log(`COMANDOS:\n\nLa acción "comandos" muestra la lista de comandos disponibles.\nSe accede con el comando [node app comandos]\n`);
         console.log(`UNDEFINED:\n\nSi no se realiza una acción al indicar la instrucción "node app" la terminal devolvera un mensaje con información con la lista de comandos disponibles.\n`);
-    break;
+        break;
     case undefined: // Mensaje que informa que no se introdujo una acción.
         console.log("Debe introducir una acción, consulte la lista de comandos [node app comandos]");
         break;

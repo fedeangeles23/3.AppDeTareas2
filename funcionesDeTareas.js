@@ -44,6 +44,27 @@ module.exports = {
     }, */
 
 
+
+
+
+    /* modificarTarea: (i,posicion, titulo, estado, categoria) => {
+        let tareaAnterior = tareas[i].titulo;
+        for (let i = 0; i < tareas.length; i++) {
+            if (Number(posicion) === i) {
+                tareas[i].titulo = titulo;
+                tareas[i].estado = estado;
+                tareas[i].categoria = categoria;
+            } 
+        }
+        guardarJSON(tareas);
+        return console.log(`La tarea ${tareaAnterior} ha sido actualizada como Título: ${titulo} Estado: ${estado} Categoría: ${categoria}`);
+    }, */
+
+
+
+
+
+
     cambiarEstado: (i, estadoNuevo) => {
         if(tareas[i].estado){
             tareas[i].estado = estadoNuevo;
