@@ -51,15 +51,22 @@ module.exports = {
         guardarJSON(tareas);
         return (`\n[La tarea "${tareas[i].titulo}" ha cambiado su estado a "${estadoNuevo}"]`)
     },
-
     cambiarTitulo: (i, tituloNuevo) => {
+        let titAnterior = tareas[i].titulo;
         if (tareas[i].titulo) {
             tareas[i].titulo = tituloNuevo;
         }
         guardarJSON(tareas);
-        return (`\n[La tarea "${tareas[i].titulo}" ha cambiado su estado a "${tituloNuevo}"]`)
+        return (`\n[La tarea con título "${titAnterior}" ha cambiado su título a "${tituloNuevo}"]`)
     },
-
+    cambiarCategoria: (i, categoriaNueva) => {
+        let catAnterior = tareas[i].categoria;
+        if (tareas[i].categoria) {
+            tareas[i].categoria = categoriaNueva;
+        }
+        guardarJSON(tareas);
+        return (`\n[La tarea con título "${tareas[i].titulo}" ha cambiado su categoría "${catAnterior}" por una nueva llamada "${categoriaNueva}"]`)
+    },
     agregarTarea: (titulo, estado) => { // Función para agregar una nueva tarea.
         let nuevaTarea = { // Definición de la tarea y su estado.
             titulo,

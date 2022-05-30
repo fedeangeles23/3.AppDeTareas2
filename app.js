@@ -1,5 +1,5 @@
 let {argv} = require("process");
-let {listar,mostrarTareas,listarTareas,filtrarPorEstado,categorizarTareas,filtrarPorCategoria,cambiarEstado,cambiarTitulo,agregarTarea,borrarPrimerTarea,borrarUltimaTarea,borrarTarea} = require("./funcionesDeTareas");
+let {listar,mostrarTareas,listarTareas,filtrarPorEstado,categorizarTareas,filtrarPorCategoria,cambiarEstado,cambiarTitulo,cambiarCategoria,agregarTarea,borrarPrimerTarea,borrarUltimaTarea,borrarTarea} = require("./funcionesDeTareas");
 
 /* Para evitar conflictos. Declaro las variables por fuera y después reasigno sus valores dentro del switch */
 
@@ -50,6 +50,11 @@ switch (argv[2]) {
         i = argv[3]
         tituloNuevo = argv[4];
         console.log(cambiarTitulo(i, tituloNuevo)); 
+        break;
+    case "nueva-categoria": // Ación para modificar el estado de una tarea.
+        i = argv[3]
+        categoriaNueva = argv[4];
+        console.log(cambiarCategoria(i, categoriaNueva)); 
         break;
     case "agregar": // Acción para agregar una nueva tarea.
         titulo = argv[3]; // Guargo el titulo de la tarea en la posición 3
