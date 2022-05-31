@@ -26,13 +26,14 @@ switch (argv[2]) {
         categorizarTareas();
         break;
 
-    // JEANE TE DEJO ESTE PARA REVISAR NO VEO EL ERROR
+    
 
-    /* case "categorias-f":
-        estado = argv[3];
+    case "categorias-f":
+        categoria = argv[3];
         console.log(`\nLAS TAREAS CON CATEGORÍA "${argv[3]}"  SON:\n---------------------------------------\n`);
         filtrarPorCategoria(categoria); 
-        break; */
+        
+        break;
 
 
 
@@ -41,9 +42,12 @@ switch (argv[2]) {
         console.log(`\nLAS TAREAS CON ESTADO "${argv[3]}"  SON:\n---------------------------------------\n`);
         filtrarPorEstado(estado);
         break;
-    /* case "modificar-tarea":
-        modificarTarea(argv[3], argv[4], argv[5])
-        break; */
+
+    case "modificar-tarea":
+        modificarTarea(argv[3], argv[4], argv[5], argv[6])
+        break;
+
+
     case "nuevo-estado": // Acción para modificar el estado de una tarea.
         i = argv[3]
         estadoNuevo = argv[4];

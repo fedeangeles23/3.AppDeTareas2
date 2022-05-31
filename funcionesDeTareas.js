@@ -30,10 +30,7 @@ module.exports = {
             return console.log(`${i + 1}. ${tarea.titulo} --> ${tarea.estado}.`)
         });
     },
-
-    // JEANE TE DEJO ESTE PARA REVISAR NO VEO EL ERROR
-
-  /*   filtrarPorCategoria: (categoria) => { // Función para mostrar las tareas que tengan un estado específico.
+    filtrarPorCategoria: (categoria) => { // Función para mostrar las tareas que tengan un estado específico.
         let categoriasFiltradas = tareas.filter(filtrar => filtrar.categoria.toLowerCase() === categoria.toLowerCase());
         if (categoriasFiltradas[0] === undefined) {
             console.log(`Actualmente no tienes tareas con categoría "${categoria}"`)
@@ -41,16 +38,11 @@ module.exports = {
         categoriasFiltradas.forEach((tarea, i) => {
             return console.log(`${i + 1}. ${tarea.titulo} --> ${tarea.estado}.`)
         });
-    }, */
-
-
-
-
-
-    /* modificarTarea: (i,posicion, titulo, estado, categoria) => {
-        let tareaAnterior = tareas[i].titulo;
+    },
+    modificarTarea: (indice, titulo, estado, categoria) => {
+        let tareaAnterior = tareas[indice].titulo;
         for (let i = 0; i < tareas.length; i++) {
-            if (Number(posicion) === i) {
+            if (Number(indice) === i) {
                 tareas[i].titulo = titulo;
                 tareas[i].estado = estado;
                 tareas[i].categoria = categoria;
@@ -58,13 +50,7 @@ module.exports = {
         }
         guardarJSON(tareas);
         return console.log(`La tarea ${tareaAnterior} ha sido actualizada como Título: ${titulo} Estado: ${estado} Categoría: ${categoria}`);
-    }, */
-
-
-
-
-
-
+    },
     cambiarEstado: (i, estadoNuevo) => {
         if(tareas[i].estado){
             tareas[i].estado = estadoNuevo;
